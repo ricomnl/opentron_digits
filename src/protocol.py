@@ -13,7 +13,6 @@ metadata = {
 }
 
 
-
 class Canvas:
     def __init__(self, well_rows=8, well_cols=12, depth=4, depth_map={}):
         self._wells = well_rows*well_cols
