@@ -13,9 +13,9 @@ metadata = {
 def run(protocol: protocol_api.ProtocolContext):
 
     # labware
-    tiprack = protocol.load_labware('opentrons_96_tiprack_300ul', '1')
-    palette = protocol.load_labware('usascientific_12_reservoir_22ml', '2')
-    canvas = protocol.load_labware('nest_96_wellplate_200ul_flat', '5')
+    tiprack = protocol.load_labware("opentrons_96_tiprack_300ul", "1")
+    palette = protocol.load_labware("usascientific_12_reservoir_22ml", "2")
+    canvas = protocol.load_labware("nest_96_wellplate_200ul_flat", "3")
 
     # pipettes
     left_pipette = protocol.load_instrument('p300_single_gen2', 'left', tip_racks=[tiprack])

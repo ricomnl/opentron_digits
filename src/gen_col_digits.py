@@ -1,11 +1,7 @@
-"""From: https://github.com/salesforce/corr_based_prediction/blob/master/gen_color_mnist.py"""
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
-import scipy
 from sklearn.datasets import load_digits
-import torch
-from xgboost import train
 
 lena = Image.open("resources/lena.png")
 
@@ -44,6 +40,16 @@ def color_digits_batch(x, batch_size=256, change_colors=True):
         # Invert the colors at the location of the number
         image[batch_binary[i]] = 1 - image[batch_binary[i]]
         batch[i] = image
-    return batch
+    return batch, batch_raw
 
-batch = color_digits_batch(x_train, batch_size=3)
+batch_size = 4
+batch, batch_raw = color_digits_batch(x_train, batch_size=batch_size, change_colors=False)
+
+fig, axs = plt.subplots(2, batch_size, figsize=(15,3))
+for i in range(batch_size):
+    axs[0, i].imshow(batch[i])
+    axs[1, i].imshow(batch_raw[i])
+    axs[0, i].axis("off")
+    axs[1, i].axis("off")
+plt.tight_layout()
+plt.show()
