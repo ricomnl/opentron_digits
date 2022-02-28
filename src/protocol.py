@@ -53,7 +53,7 @@ class Canvas:
         plt.yticks(list(self._row_map.values()), list(self._row_map.keys()))
         if cmap_name:
             plt.set_cmap(cmap_name)
-        plt.savefig("test.png")
+        plt.savefig("img/test.png")
         plt.close()
 
 
@@ -102,4 +102,4 @@ def run(protocol: protocol_api.ProtocolContext):
         sim_canvas.set(canvas_well, 1, amount)
         right_pipette.drop_tip()
 
-    sim_canvas.draw(cmap_name="Oranges")
+    sim_canvas.draw(cmap_name="Blues")
